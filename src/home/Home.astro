@@ -1,0 +1,20 @@
+---
+import styles from './Home.module.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/ParkifyLogo.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Chela+One&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>Parkify</title>
+	</head>
+	<body class={styles.body}>
+		<slot />
+	</body>
+</html>
