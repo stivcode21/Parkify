@@ -1,0 +1,45 @@
+---
+import styles from './ParkifyLogin.module.css';
+import LogoParkify from '@/components/atoms/logoParkify/LogoParkify.astro';
+---
+
+<div class={styles.container}>
+  <div class={styles.leftPanel}>
+    <h1 class={styles.title}>INICIAR SESION</h1>
+    <form class={styles.form}>
+      <label class={styles.label} for="usuario">Usuario:</label>
+      <input class={styles.input} type="text" id="usuario" name="usuario" autocomplete="username" />
+      
+      <label class={styles.label} for="contrasena">Contraseña:</label>
+      <input class={styles.input} type="password" id="contrasena" name="contrasena" autocomplete="current-password" />
+      
+      <button class={styles.button} type="submit">Acceder</button>
+    </form>
+  </div>
+
+  <div class={styles.rightPanel}>
+    <span class={styles.welcomeText}>Bienvenidos a</span>
+    <div>
+        <LogoParkify />
+        <p class={styles.subtitle}>Sistema de gestion parqueadero</p>
+    </div>
+
+    <div class={styles.info}>
+      <div class={styles.infoRow}>
+        <span class={styles.icon}>
+          <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 2C7 2 4 6.5 4 10.5c0 2.9 3.1 7.1 7.1 10.4a1.5 1.5 0 0 0 1.8 0C16.9 17.6 20 13.4 20 10.5 20 6.5 17 2 12 2z" stroke="#fff" fill="none"/></svg>
+        </span>
+        <span>Medellin, colombia</span>
+      </div>
+      <div class={styles.infoRow}>
+        <span class={styles.icon}>
+          <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 2 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.13 1.13.3 2.24.54 3.32a2 2 0 0 1-.45 1.95l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 1.95-.45c1.08.24 2.19.41 3.32.54A2 2 0 0 1 22 16.92Z"/></svg>
+        </span>
+        <span>+57 3122222222</span>
+      </div>
+    </div>
+
+    <img src="./src/assets/parking-info.svg" class={styles.parking} alt="parking icon">
+    <footer class={styles.footer}>© 2025 desarrollado por stivcode</footer>
+  </div>
+</div>
