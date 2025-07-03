@@ -1,7 +1,7 @@
 ---
+import Button from '@/components/atoms/button/Button.astro';
 import styles from './Landing.module.css';
 import LogoParkify from '@/components/atoms/logoParkify/LogoParkify.astro';
-
 ---
 
 <div class={styles.container}>
@@ -9,5 +9,8 @@ import LogoParkify from '@/components/atoms/logoParkify/LogoParkify.astro';
     <LogoParkify />
   </div>
   <img src="/bgAutos.png" alt="background" class={styles.cars} />
-  <a href="/login" class={styles.button}>Iniciar</a>
+  <div  class={styles.button}>
+    <Button path="/login" name="Iniciar"/>
+  </div>
+  <footer class={styles.footer}>© 2025 desarrollado por stivcode</footer>
 </div>
