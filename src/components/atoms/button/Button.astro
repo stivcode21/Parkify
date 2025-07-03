@@ -1,0 +1,6 @@
+---
+import styles from './Button.module.css';
+const { path, name } = Astro.props;
+---
+
+<a href={path} class={styles.button}>{name}</a>
