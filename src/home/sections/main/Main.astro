@@ -1,7 +1,31 @@
 ---
+import LogoParkify from '@/components/atoms/logoParkify/LogoParkify.astro';
 import styles from './Main.module.css';
+import ModalButton from '@/components/molecules/modalButton/modalButton.astro';
+import Reloj from '@/components/molecules/reloj/Reloj';
+import ActuallyDate from '@/components/molecules/actuallyDate/ActuallyDate';
 ---
 
-<div class={styles.container}>
-  <h2>hola mundo</h2>
+
+<div class={styles.bg}>
+  <div class={styles.container}>
+    <header class={styles.header}>
+      <ActuallyDate client:load/>
+      <Reloj client:load/>
+    </header>
+  
+    <LogoParkify />
+    <img src="./src/assets/auto.svg" alt="auto-icon" class={styles.auto} />
+  
+    <div class={styles.box}>
+      <ModalButton name="Ingresar Vehiculos" />
+      <ModalButton name="Salida Vehiculos" />
+      <ModalButton name="Lista Vehiculos" />
+      <ModalButton name="Historial" />
+      <ModalButton name="Inventario" />
+      <ModalButton name="Salir" exit={true} />
+    </div>
+
+    <footer class={styles.footer}>© 2025 desarrollado por stivcode</footer>
+  </div>
 </div>
