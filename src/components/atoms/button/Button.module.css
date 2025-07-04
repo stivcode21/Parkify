@@ -18,3 +18,8 @@
   border: solid 2px #2d2d2d;
   transition: all 0.1s ease-in-out;
 }
+
+.button:active {
+  scale: 0.9;
+  transition: all 0.1s ease-in-out;
+}
