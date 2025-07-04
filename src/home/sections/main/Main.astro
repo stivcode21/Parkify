@@ -1,9 +1,10 @@
 ---
 import LogoParkify from '@/components/atoms/logoParkify/LogoParkify.astro';
 import styles from './Main.module.css';
-import ModalButton from '@/components/molecules/modalButton/modalButton.astro';
+import ButtonModal from '@/components/atoms/buttonModal/ButtonModal.jsx';
 import Reloj from '@/components/molecules/reloj/Reloj';
 import ActuallyDate from '@/components/molecules/actuallyDate/ActuallyDate';
+import ModalOverlay from '@/components/templates/modalOverlay/ModalOverlay.jsx';
 ---
 
 
@@ -18,13 +19,15 @@ import ActuallyDate from '@/components/molecules/actuallyDate/ActuallyDate';
     <img src="./src/assets/auto.svg" alt="auto-icon" class={styles.auto} />
   
     <div class={styles.box}>
-      <ModalButton name="Ingresar Vehiculos" />
-      <ModalButton name="Salida Vehiculos" />
-      <ModalButton name="Lista Vehiculos" />
-      <ModalButton name="Historial" />
-      <ModalButton name="Inventario" />
-      <ModalButton name="Salir" exit={true} />
+      <ButtonModal name="Ingresar Vehiculos" client:load />
+      <ButtonModal name="Salida Vehiculos" client:load />
+      <ButtonModal name="Lista Vehiculos" client:load />
+      <ButtonModal name="Historial" client:load />
+      <ButtonModal name="Inventario" client:load />
+      <ButtonModal name="Salir" exit={true} client:load/>
     </div>
+
+    <ModalOverlay client:load>hola</ModalOverlay>
 
     <footer class={styles.footer}>© 2025 desarrollado por stivcode</footer>
   </div>
