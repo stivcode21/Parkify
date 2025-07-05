@@ -2,10 +2,10 @@ import styles from "./ExitModal.module.css";
 import useModalStore from "@/store/ModalStore";
 
 const ExitModal = () => {
-  const { setModalState } = useModalStore();
+  const { closeModal } = useModalStore();
 
   return (
-    <button className={styles.closeButton} onClick={() => setModalState(false)}>
+    <button className={styles.closeButton} onClick={closeModal}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
