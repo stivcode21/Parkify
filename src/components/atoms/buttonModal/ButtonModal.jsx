@@ -1,14 +1,14 @@
 import styles from "./ButtonModal.module.css";
 import useModalStore from "@/store/ModalStore";
 
-const ButtonModal = ({ exit = false, name }) => {
-  const { setModalState } = useModalStore();
+const ButtonModal = ({ exit = false, name, component }) => {
+  const { setModalContent } = useModalStore();
 
   const handleClick = () => {
     if (exit) {
       window.location.href = "/login";
     } else {
-      setModalState(true);
+      setModalContent(component); // pasamos el componente como contenido del modal
     }
   };
 
