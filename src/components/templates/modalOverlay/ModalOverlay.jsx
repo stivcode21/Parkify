@@ -3,18 +3,18 @@ import styles from "./ModalOverlay.module.css";
 import { motion } from "framer-motion";
 import useModalStore from "@/store/ModalStore";
 
-const ModalOverlay = ({ children }) => {
-  const { modalState, setModalState } = useModalStore();
+const ModalOverlay = () => {
+  const { modalContent, closeModal } = useModalStore();
 
-  if (!modalState) return null;
+  if (!modalContent) return null;
 
   return (
-    <div className={styles.overlay} onClick={() => setModalState(false)}>
+    <div className={styles.overlay} onClick={closeModal}>
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.5,
+          duration: 0.4,
           delay: 0.05,
           ease: [0.215, 0.61, 0.355, 1],
         }}
@@ -22,7 +22,9 @@ const ModalOverlay = ({ children }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <ExitModal />
-        <div className={styles.content}>{children}</div>
+        <div className={styles.content}>
+          {modalContent} {/* Aquí renderizamos el contenido dinámico */}
+        </div>
       </motion.div>
     </div>
   );
