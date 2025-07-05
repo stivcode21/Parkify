@@ -1,8 +1,9 @@
 import { create } from "zustand";
 
 const useModalStore = create((set) => ({
-  modalState: false,
-  setModalState: (state) => set({ modalState: state }),
+  modalContent: null,
+  setModalContent: (content) => set({ modalContent: content }),
+  closeModal: () => set({ modalContent: null }),
 }));
 
 export default useModalStore;
