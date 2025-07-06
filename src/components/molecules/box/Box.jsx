@@ -9,7 +9,7 @@ import Inventory from "@/components/organisms/inventory/Inventory";
 
 const Box = () => {
   return (
-    <div class={styles.box}>
+    <div className={styles.box}>
       <ButtonModal name="Ingresar Vehiculos" component={<VehicleEntry />} />
       <ButtonModal name="Salida Vehiculos" component={<VehicleExit />} />
       <ButtonModal name="Lista Vehiculos" component={<VehicleList />} />
