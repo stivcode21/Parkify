@@ -30,6 +30,11 @@
 .column2 {
   width: 30%;
   height: 350px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 }
 
 body {
@@ -97,10 +102,26 @@ th {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 .time {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.money {
+  background-color: #0d0d0d;
+  border: none;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  padding: 14px 5px;
+  color: #00ff33;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2.3rem;
 }

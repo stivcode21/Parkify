@@ -1,13 +1,17 @@
 import { useState } from "react";
 import styles from "./VehicleList.module.css";
 import ParkifyLogo from "@/components/atoms/parkifyLogo/ParkifyLogo";
-import ButtonSend from "@/components/atoms/buttonSend/ButtonSend";
 import CounterVehicles from "@/components/molecules/counterVehicles/CounterVehicles";
 import RowListVehicles from "@/components/molecules/rowListVehicles/RowListVehicles";
 import { vehicles } from "@/data/dataVehicles";
+import useHoraColombia from "@/hooks/useHoraColombia";
+import useTiempoTranscurrido from "@/hooks/useTiempoTranscurrido";
 
 const VehicleList = () => {
   const [selected, setSelected] = useState(null);
+  const horaActual = useHoraColombia();
+  const vehicleSelected = vehicles.find((v) => v.placa === selected);
+  const tiempoPasado = useTiempoTranscurrido(vehicleSelected?.hora, horaActual); // desde esa hora
 
   return (
     <>
@@ -40,7 +44,20 @@ const VehicleList = () => {
             </tbody>
           </table>
         </div>
-        <div className={styles.column2}></div>
+        <div className={styles.column2}>
+          <div className={styles.containerPlaca}>
+            <span className={styles.label}>Placa</span>
+            <span className={styles.placa}>{selected}</span>
+          </div>
+          <div className={styles.containerTime}>
+            <span className={styles.label}>Tiempo</span>
+            <span className={styles.time}>{tiempoPasado}</span>
+          </div>
+          <div className={styles.containerPlaca}>
+            <span className={styles.label}>Valor a pagar</span>
+            <span className={styles.money}>{`$${"18.000"}`}</span>
+          </div>
+        </div>
       </div>
     </>
   );
