@@ -31,7 +31,7 @@
   width: 30%;
   height: 350px;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-direction: column;
   align-items: center;
   justify-content: start;
@@ -60,6 +60,7 @@ td {
 
 th {
   font-weight: bold;
+  color: #007fff;
 }
 
 .header:hover {
@@ -68,20 +69,19 @@ th {
 }
 
 .placa {
-  background-color: #0d0d0d;
-  border: none;
+  background-color: #0059b3;
   width: 200px;
   height: 60px;
   border-radius: 14px;
   padding: 14px 10px;
-  color: #007fff;
-  font-weight: bold;
+  color: #ffffff;
+  font-weight: 900;
   text-align: center;
   text-transform: uppercase;
   font-size: 3rem;
 }
 
-.containerPlaca {
+.containerItems {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,37 +91,64 @@ th {
 }
 
 .label {
-  color: #fff;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-.containerTime {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 5px;
+}
+
+.label svg {
+  color: #007fff;
 }
 
 .time {
-  font-size: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
   font-weight: bold;
+  color: #007fff;
 }
 
 .money {
-  background-color: #0d0d0d;
-  border: none;
-  width: 180px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 14px;
-  padding: 14px 5px;
-  color: #00ff33;
-  font-weight: bold;
+  color: #007fff;
+  font-weight: 900;
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 2rem;
+}
+
+@media (width <= 1264px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .column1 {
+    width: 100%;
+  }
+
+  .column2 {
+    width: 50%;
+  }
+}
+
+@media (width <= 900px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+  .column2 {
+    width: 70%;
+  }
+}
+
+@media (width <= 764px) {
+  .column2 {
+    width: 90%;
+  }
 }
