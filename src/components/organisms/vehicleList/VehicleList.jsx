@@ -6,6 +6,7 @@ import RowListVehicles from "@/components/molecules/rowListVehicles/RowListVehic
 import { vehicles } from "@/data/dataVehicles";
 import useHoraColombia from "@/hooks/useHoraColombia";
 import useTiempoTranscurrido from "@/hooks/useTiempoTranscurrido";
+import { CarFront, HandCoins, History } from "lucide-react";
 
 const VehicleList = () => {
   const [selected, setSelected] = useState(null);
@@ -45,16 +46,27 @@ const VehicleList = () => {
           </table>
         </div>
         <div className={styles.column2}>
-          <div className={styles.containerPlaca}>
-            <span className={styles.label}>Placa</span>
-            <span className={styles.placa}>{selected}</span>
+          <div className={styles.containerItems}>
+            <span className={styles.label}>
+              <CarFront />
+              Placa
+            </span>
+            <span className={styles.placa}>{selected ? selected : "---"}</span>
           </div>
-          <div className={styles.containerTime}>
-            <span className={styles.label}>Tiempo</span>
-            <span className={styles.time}>{tiempoPasado}</span>
+          <div className={styles.containerItems}>
+            <span className={styles.label}>
+              <History />
+              Tiempo
+            </span>
+            <span className={styles.time}>
+              {tiempoPasado ? tiempoPasado : "time"}
+            </span>
           </div>
-          <div className={styles.containerPlaca}>
-            <span className={styles.label}>Valor a pagar</span>
+          <div className={styles.containerItems}>
+            <span className={styles.label}>
+              <HandCoins />
+              Valor a pagar
+            </span>
             <span className={styles.money}>{`$${"18.000"}`}</span>
           </div>
         </div>
