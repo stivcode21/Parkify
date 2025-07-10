@@ -5,7 +5,7 @@ import VehicleEntry from "@/components/organisms/vehicleEntry/VehicleEntry";
 import VehicleExit from "@/components/organisms/vehicleExit/VehicleExit";
 import VehicleList from "@/components/organisms/vehicleList/VehicleList";
 import HistoryLog from "@/components/organisms/historyLog/HistoryLog";
-import Inventory from "@/components/organisms/inventory/Inventory";
+import Lockers from "@/components/organisms/lockers/Lockers";
 
 const Box = () => {
   return (
@@ -14,7 +14,7 @@ const Box = () => {
       <ButtonModal name="Salida Vehiculos" component={<VehicleExit />} />
       <ButtonModal name="Lista Vehiculos" component={<VehicleList />} />
       <ButtonModal name="Historial" component={<HistoryLog />} />
-      <ButtonModal name="Inventario" component={<Inventory />} />
+      <ButtonModal name="Casilleros" component={<Lockers />} />
       <ButtonModal name="Salir" exit={true} />
     </div>
   );
