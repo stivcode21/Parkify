@@ -1,0 +1,52 @@
+.locker {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 2px solid #fff;
+}
+
+.chart {
+  width: 60px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  border: 2px solid #fff;
+}
+
+.chartChildren {
+  width: 40px;
+  height: 10px;
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  border: 2px solid #fff;
+}
+
+.lock {
+  width: 3px;
+  height: 35px;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  border: 2px solid #fff;
+}
+
+.bars {
+  width: 60px;
+  position: absolute;
+  top: 60px;
+  left: 28px;
+  background-color: #fff;
+  border: 2px solid #fff;
+}
+
+.bars2 {
+  top: 68px;
+}
+
+.bars3 {
+  top: 76px;
+}
