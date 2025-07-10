@@ -36,9 +36,9 @@ const useTiempoTranscurrido = (fechaInicial, horaInicial) => {
     let texto = "";
     if (dias > 0) texto += `${dias} día${dias !== 1 ? "s" : ""}`;
     if (horas > 0)
-      texto += `${texto ? ", " : ""}${horas} hora${horas !== 1 ? "s" : ""}`;
+      texto += `${texto ? " - " : ""}${horas} hora${horas !== 1 ? "s" : ""}`;
     if (minutos > 0)
-      texto += `${texto ? " y " : ""}${minutos} minuto${
+      texto += `${texto ? " - " : ""}${minutos} minuto${
         minutos !== 1 ? "s" : ""
       }`;
     if (!texto) texto = "menos de 1 minuto";
