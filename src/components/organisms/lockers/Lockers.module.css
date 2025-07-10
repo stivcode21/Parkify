@@ -1,0 +1,14 @@
+.lockers {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (width <= 900px) {
+  .lockers {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+}
