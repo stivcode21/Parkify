@@ -4,15 +4,19 @@ import ParkifyLogo from "@/components/atoms/parkifyLogo/ParkifyLogo";
 import CounterVehicles from "@/components/molecules/counterVehicles/CounterVehicles";
 import RowListVehicles from "@/components/molecules/rowListVehicles/RowListVehicles";
 import { vehicles } from "@/data/dataVehicles";
-import useHoraColombia from "@/hooks/useHoraColombia";
 import useTiempoTranscurrido from "@/hooks/useTiempoTranscurrido";
-import { CarFront, HandCoins, History } from "lucide-react";
+import useCalculoPago from "@/hooks/useCalculoPago";
+import TicketBill from "@/components/molecules/ticketBill/TicketBill";
 
 const VehicleList = () => {
   const [selected, setSelected] = useState(null);
-  const horaActual = useHoraColombia();
+
   const vehicleSelected = vehicles.find((v) => v.placa === selected);
-  const tiempoPasado = useTiempoTranscurrido(vehicleSelected?.hora, horaActual); // desde esa hora
+  const tiempoPasado = useTiempoTranscurrido(
+    vehicleSelected?.fecha,
+    vehicleSelected?.hora
+  );
+  const valorAPagar = useCalculoPago(tiempoPasado);
 
   return (
     <>
@@ -46,29 +50,11 @@ const VehicleList = () => {
           </table>
         </div>
         <div className={styles.column2}>
-          <div className={styles.containerItems}>
-            <span className={styles.label}>
-              <CarFront />
-              Placa
-            </span>
-            <span className={styles.placa}>{selected ? selected : "---"}</span>
-          </div>
-          <div className={styles.containerItems}>
-            <span className={styles.label}>
-              <History />
-              Tiempo
-            </span>
-            <span className={styles.time}>
-              {tiempoPasado ? tiempoPasado : "time"}
-            </span>
-          </div>
-          <div className={styles.containerItems}>
-            <span className={styles.label}>
-              <HandCoins />
-              Valor a pagar
-            </span>
-            <span className={styles.money}>{`$${"18.000"}`}</span>
-          </div>
+          <TicketBill
+            selected={selected}
+            tiempoPasado={tiempoPasado}
+            valorAPagar={valorAPagar}
+          />
         </div>
       </div>
     </>
