@@ -1,15 +1,19 @@
 import styles from "./Locker.module.css";
 
-const Locker = () => {
+const Locker = ({ number }) => {
   return (
     <div className={styles.locker}>
       <div className={styles.chart}>
-        <div className={styles.chartChildren}></div>
+        <p>{number}</p>
       </div>
       <div className={`${styles.bars} ${styles.bars1}`}></div>
       <div className={`${styles.bars} ${styles.bars2}`}></div>
       <div className={`${styles.bars} ${styles.bars3}`}></div>
       <div className={styles.lock}></div>
+      <div className={styles.description}>
+        <p className={styles.state}>Disponible</p>
+        <p className={styles.placa}>ODM72G</p>
+      </div>
     </div>
   );
 };
