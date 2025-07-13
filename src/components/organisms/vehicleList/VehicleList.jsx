@@ -12,11 +12,8 @@ const VehicleList = () => {
   const [selected, setSelected] = useState(null);
 
   const vehicleSelected = vehicles.find((v) => v.placa === selected);
-  const tiempoPasado = useTiempoTranscurrido(
-    vehicleSelected?.fecha,
-    vehicleSelected?.hora
-  );
-  const valorAPagar = useCalculoPago(tiempoPasado);
+  const tiempoPasado = useTiempoTranscurrido(vehicleSelected?.fecha);
+  const valorAPagar = useCalculoPago(vehicleSelected?.fecha);
 
   return (
     <>
@@ -30,8 +27,8 @@ const VehicleList = () => {
               <tr className={styles.header}>
                 <th>Placa</th>
                 <th>Vehículo</th>
-                <th>Fecha</th>
-                <th>Hora</th>
+                <th>Casillero</th>
+                <th>Fecha/Entrada</th>
               </tr>
             </thead>
             <tbody>
@@ -42,7 +39,7 @@ const VehicleList = () => {
                   placaID={vehicle.placa}
                   vehiculo={vehicle.tipo}
                   fecha={vehicle.fecha}
-                  hora={vehicle.hora}
+                  casillero={vehicle.casillero}
                   key={index}
                 />
               ))}
