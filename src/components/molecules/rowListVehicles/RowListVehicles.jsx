@@ -4,19 +4,34 @@ const RowListVehicles = ({
   placaID,
   vehiculo,
   fecha,
-  hora,
+  casillero,
   selected,
   setSelected,
+  history,
+  salida,
+  pago,
 }) => {
   return (
     <tr
       onClick={() => setSelected(placaID)}
       className={selected === placaID ? styles.selected : ""}
     >
-      <td>{placaID}</td>
-      <td>{vehiculo}</td>
-      <td>{fecha}</td>
-      <td>{hora}</td>
+      {history ? (
+        <>
+          <td>{placaID}</td>
+          <td>{vehiculo}</td>
+          <td>{fecha}</td>
+          <td>{salida}</td>
+          <td>{pago}</td>
+        </>
+      ) : (
+        <>
+          <td>{placaID}</td>
+          <td>{vehiculo}</td>
+          <td>{casillero}</td>
+          <td>{fecha}</td>
+        </>
+      )}
     </tr>
   );
 };
