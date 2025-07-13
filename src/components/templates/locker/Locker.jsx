@@ -12,7 +12,7 @@ const Locker = ({ number }) => {
       <div className={styles.lock}></div>
       <div className={styles.circle}></div>
       <div className={styles.description}>
-        <p className={styles.placa}>ODM72G</p>
+        {/* <p className={styles.placa}>ODM72G</p> */}
       </div>
     </div>
   );
