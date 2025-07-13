@@ -1,28 +1,32 @@
 import { useEffect, useState } from "react";
 
-const useCalculoPago = (tiempoTexto) => {
+const useCalculoPago = (fechaHoraIngreso) => {
   const [valor, setValor] = useState("...");
   const tarifaPorHora = 1500;
 
   useEffect(() => {
-    if (!tiempoTexto) return;
+    if (!fechaHoraIngreso) return;
 
-    // Extraer números desde el texto
-    const diasMatch = tiempoTexto.match(/(\d+)\s*día/);
-    const horasMatch = tiempoTexto.match(/(\d+)\s*hora/);
-    const minutosMatch = tiempoTexto.match(/(\d+)\s*minuto/);
+    const ingreso = new Date(fechaHoraIngreso); // ya viene en formato 'YYYY-MM-DD HH:mm'
 
-    const dias = diasMatch ? parseInt(diasMatch[1]) : 0;
-    const horas = horasMatch ? parseInt(horasMatch[1]) : 0;
-    const minutos = minutosMatch ? parseInt(minutosMatch[1]) : 0;
+    const ahora = new Date(); // tiempo actual
+    const diferenciaMs = ahora - ingreso;
 
-    // Total de horas completas a cobrar (minutos redondeados a la hora siguiente si existen)
+    if (diferenciaMs < 0) {
+      setValor("$0");
+      return;
+    }
+
+    const totalMinutos = Math.floor(diferenciaMs / 1000 / 60);
+    const dias = Math.floor(totalMinutos / (60 * 24));
+    const horas = Math.floor((totalMinutos % (60 * 24)) / 60);
+    const minutos = totalMinutos % 60;
+
     let totalHoras = dias * 24 + horas;
-    if (minutos > 0) totalHoras += 1; // redondeo hacia arriba
+    if (minutos > 0) totalHoras += 1;
 
     const total = totalHoras * tarifaPorHora;
 
-    // Formatear como moneda COP
     const formateado = new Intl.NumberFormat("es-CO", {
       style: "currency",
       currency: "COP",
@@ -30,7 +34,7 @@ const useCalculoPago = (tiempoTexto) => {
     }).format(total);
 
     setValor(formateado);
-  }, [tiempoTexto, tarifaPorHora]);
+  }, [fechaHoraIngreso]);
 
   return valor;
 };
