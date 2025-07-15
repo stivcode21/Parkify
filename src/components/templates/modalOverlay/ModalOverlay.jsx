@@ -22,9 +22,7 @@ const ModalOverlay = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <ExitModal />
-        <div className={styles.content}>
-          {modalContent} {/* Aquí renderizamos el contenido dinámico */}
-        </div>
+        <div className={styles.content}>{modalContent}</div>
       </motion.div>
     </div>
   );
